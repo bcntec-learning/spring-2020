@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
+
+
+<head id="head">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>AIS Demo</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <section layout:fragment="content">
+        <p>Page content goes here</p>
+    </section>
+
+    <div id="footer">
+        <div id="banner"></div>
+        <p layout:fragment="custom-footer"></p>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        $('#search').click(function () {
+            $('#search-form').submit();
+        });
+    });
+</script>
+</body>
+</html>

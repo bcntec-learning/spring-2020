@@ -1,0 +1,305 @@
+{
+  "info": {
+    "_postman_id": "7bf18a59-e83d-4aa7-898d-037fdfeed3c5",
+    "name": "bcntec",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List User /list",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "{{hostname}}/list",
+          "host": [
+            "{{hostname}}"
+          ],
+          "path": [
+            "list"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List User /list POXY",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:8081/list",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "list"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List User /list feign",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:8081/list-feign",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "list-feign"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Page User /q",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "{{hostname}}/q?page=0&name=J&size=5",
+          "host": [
+            "{{hostname}}"
+          ],
+          "path": [
+            "q"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "name",
+              "value": "J"
+            },
+            {
+              "key": "size",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Page User MyQuery  /q2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "{{hostname}}/q2?page=0&name=Jon&size=5",
+          "host": [
+            "{{hostname}}"
+          ],
+          "path": [
+            "q2"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "name",
+              "value": "Jon"
+            },
+            {
+              "key": "size",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Page User /q/{pge}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "{{hostname}}/q/0?name=J",
+          "host": [
+            "{{hostname}}"
+          ],
+          "path": [
+            "q",
+            "0"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "J"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List User /list2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "{{hostname}}/list2",
+          "host": [
+            "{{hostname}}"
+          ],
+          "path": [
+            "list2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List User /names",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "{{hostname}}/names",
+          "host": [
+            "{{hostname}}"
+          ],
+          "path": [
+            "names"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create User /",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/html"
+          }
+        ],
+        "body": {},
+        "url": {
+          "raw": "{{hostname}}/?name=Adam&email=adam@mail.com",
+          "host": [
+            "{{hostname}}"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "Adam"
+            },
+            {
+              "key": "email",
+              "value": "adam@mail.com"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create User / Jon",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/html"
+          }
+        ],
+        "body": {},
+        "url": {
+          "raw": "{{hostname}}/?name=Jon&email=jon@mail.com",
+          "host": [
+            "{{hostname}}"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "Jon"
+            },
+            {
+              "key": "email",
+              "value": "jon@mail.com"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update User",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "{{hostname}}/1/?name=Jon.jon&email=jon2.jon@mail.com",
+          "host": [
+            "{{hostname}}"
+          ],
+          "path": [
+            "1",
+            ""
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "Jon.jon"
+            },
+            {
+              "key": "email",
+              "value": "jon2.jon@mail.com"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete User",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "{{hostname}}/1",
+          "host": [
+            "{{hostname}}"
+          ],
+          "path": [
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
