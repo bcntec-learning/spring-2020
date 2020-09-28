@@ -13,7 +13,7 @@ import javax.annotation.PreDestroy;
 
 @Scope("prototype")
 @Component("subMyFirstBean")
-public class MyFirstBean implements FirstBean, BeanNameAware, BeanFactoryAware {
+public class SubMyFirstBean implements FirstBean, BeanNameAware, BeanFactoryAware {
 
     private String myName;
 
@@ -45,6 +45,10 @@ public class MyFirstBean implements FirstBean, BeanNameAware, BeanFactoryAware {
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        beanFactory.getBean("myVariable");
+        try {
+            beanFactory.getBean("myVariable");
+        }catch (Exception ignored){
+
+        }
     }
 }

@@ -1,6 +1,7 @@
 package bcntec.spring.beans.test;
 
 
+import bcntec.spring.beans.FirstBean;
 import bcntec.spring.beans.a_context.MyFirstBean;
 import bcntec.spring.beans.a_context.MyFirstContext1;
 import bcntec.spring.beans.a_context.MySecondBean;
