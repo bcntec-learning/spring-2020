@@ -23,10 +23,20 @@ public class TestFactories {
     MyThirdBean bean3;
 
 
+    @Qualifier("4")
+    @Autowired
+    MyThirdBean bean4;
+
+
     @Test
-    public void factory_not_null() {
+    public void factory_3() {
         assertNotNull(bean3);
         assertEquals("hello hello !!!!!!!!!!!!", bean3.hello());
+    }
+    @Test
+    public void factory_4() {
+        assertNotNull(bean4);
+        assertEquals("hello hello !!!!!!!!!!!!", bean4.hello());
     }
 
 }

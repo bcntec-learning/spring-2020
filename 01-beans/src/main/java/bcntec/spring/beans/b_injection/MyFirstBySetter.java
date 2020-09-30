@@ -24,9 +24,10 @@ public class MyFirstBySetter implements FirstBean {
     @Autowired
     public void setBean1(FirstBean bean) {
         this.bean1 = bean;
+        System.err.println("!!!!! bean 2");
     }
 
-    @Resource(name = "myFirstBean2")
+    @Resource(name = "myFirstBean2")  // es igual a @Autowired("myFirstBean2")
     public void setBean2(FirstBean bean) {
         this.bean2 = bean;
     }

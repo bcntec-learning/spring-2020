@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 @CustomQualifier(status = StatusType.A)
 public class CustomBean implements Custom {
-    private String id;
+    private String id = "A";
 
     public String getId() {
         return id;

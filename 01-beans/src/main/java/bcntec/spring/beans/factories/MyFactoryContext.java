@@ -8,6 +8,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan(value = "bcntec.spring.beans.factories")
 public class MyFactoryContext {
+
+    @Qualifier("0")
+    @Bean  //@Producer
+    public MyThirdBean myThirdBean0() {
+        //if()
+        return new MyThirdBean("0");
+    }
+
     @Qualifier("1")
     @Bean  //@Producer
     public MyThirdBean myThirdBean1(MyFirstBean sub) {
@@ -31,7 +39,7 @@ public class MyFactoryContext {
 
     @Qualifier("4")
     @Bean  //@Producer
-    public MyThirdBean myThirdBean3(@Qualifier("3") MyThirdBean sub) {
+    public MyThirdBean myThirdBean4(@Qualifier("3") MyThirdBean sub) {
         //if()
         return sub;
     }
