@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.util.ClassUtils;
 
 @Configuration
+//@ComponentScan(value = "bcntec.spring.beans.b_naming") //generador estandar y con ello un formato de nombres
 @ComponentScan(value = "bcntec.spring.beans.a_naming", nameGenerator = CustomNamingBeanContext.MyBeanNameGenerator.class)
 public class CustomNamingBeanContext {
 
