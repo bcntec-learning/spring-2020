@@ -12,7 +12,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.assertNotNull;
 
-@ActiveProfiles("bean2")
+//@ActiveProfiles("my_profile")
+//@ActiveProfiles({"bean1"})
+@ActiveProfiles({"bean1","my_profile"})
+//@ActiveProfiles({"bean2","my_profile"})
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {MyProfilesContext.class})
 public class TestProfiles {
