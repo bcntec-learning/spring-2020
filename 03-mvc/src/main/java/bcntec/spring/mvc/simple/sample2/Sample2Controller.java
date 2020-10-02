@@ -23,6 +23,7 @@ public class Sample2Controller {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView showForm() {
+        //sample2/add   y por defetcto el ResourceBundle sufijo .jsp
         return new ModelAndView("add", "employee", new Employee());
     }
 
