@@ -10,7 +10,7 @@ import org.springframework.web.context.request.RequestContextListener;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
-@ComponentScan()
+
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 

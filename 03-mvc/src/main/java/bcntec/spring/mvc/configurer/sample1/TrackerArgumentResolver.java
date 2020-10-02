@@ -12,9 +12,7 @@ public class TrackerArgumentResolver implements HandlerMethodArgumentResolver {
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        //parameter.hasParameterAnnotation()
-        //parameter.getParameterName()
-        return String.class.isAssignableFrom(parameter.getParameterType()) &&
+        return TrackerID.class.isAssignableFrom(parameter.getParameterType()) ||
                 parameter.hasParameterAnnotation(Tracker.class);
     }
 
@@ -22,7 +20,14 @@ public class TrackerArgumentResolver implements HandlerMethodArgumentResolver {
     public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         String header = webRequest.getHeader("my-tracker");
         if (header != null && !header.trim().isEmpty()) {
-            return header.trim();
+            if (TrackerID.class.isAssignableFrom(methodParameter.getParameterType())) {
+                return new TrackerID(header.trim());
+            }
+            if (String.class.isAssignableFrom(methodParameter.getParameterType())) {
+                return header.trim();
+            }
+
+            throw new IllegalArgumentException("no compatible");
         } else {
             return null;
         }
