@@ -1,4 +1,4 @@
-package bcntec.spring.mvc.configurer.sample1;
+package bcntec.spring.mvc.argumentsresolvers.sample1;
 
 public class TrackerID {
     String value;

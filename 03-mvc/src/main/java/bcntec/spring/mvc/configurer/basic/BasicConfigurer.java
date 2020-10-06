@@ -1,6 +1,6 @@
 package bcntec.spring.mvc.configurer.basic;
 
-import bcntec.spring.mvc.configurer.sample1.TrackerArgumentResolver;
+import bcntec.spring.mvc.argumentsresolvers.sample1.TrackerArgumentResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
