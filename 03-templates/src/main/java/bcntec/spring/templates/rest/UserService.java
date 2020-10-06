@@ -19,10 +19,15 @@ public class UserService {
 
     public List<User> list() {
 
-        ResponseEntity<Users> ret = restTemplate.get("/list2", Users.class);
+        Users ret = restTemplate.get("/list-2", Users.class);
 
+        return ret;
+    }
+    public List<User> listError() {
 
-        return ret.getBody();
+        Users ret = restTemplate.get("/abcdes", Users.class);
+
+        return ret;
     }
 
     public List<User> listFeign() {

@@ -11,6 +11,6 @@ import java.util.List;
 public interface UserClient {
 
 
-    @RequestMapping(method = RequestMethod.GET, value = "/list2", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value = "/list-2", consumes = MediaType.APPLICATION_JSON_VALUE)
     List<User> list();
 }

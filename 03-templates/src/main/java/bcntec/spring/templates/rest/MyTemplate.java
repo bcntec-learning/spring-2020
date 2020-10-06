@@ -1,5 +1,6 @@
 package bcntec.spring.templates.rest;
 
+import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +29,7 @@ public class MyTemplate {
     public static final String apiToken = "MyToken";
     private static final Logger log = LoggerFactory.getLogger(MyTemplate.class);
 
+    @Getter
     private final RestTemplate restTemplate = new RestTemplate();
 
     @Nullable
@@ -43,7 +45,8 @@ public class MyTemplate {
             public boolean hasError(ClientHttpResponse httpResponse)
                     throws IOException {
                 HttpStatus status = httpResponse.getStatusCode();
-                return (
+
+                return ( httpResponse.getHeaders().get("Error")!=null ||
                         status.series() == CLIENT_ERROR
                                 || status.series() == SERVER_ERROR);
             }
@@ -71,9 +74,9 @@ public class MyTemplate {
         restTemplate.setErrorHandler(errorHandler());
     }
 
-    public <T> ResponseEntity<T> get(String endpoint, Class<T> entityType) {
+    public <T> T get(String endpoint, Class<T> entityType) {
         UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(apiUrl + endpoint);
-        return restTemplate.exchange(builder.toUriString(), HttpMethod.GET, new HttpEntity<>(headers()), entityType);
+        return restTemplate.exchange(builder.toUriString(), HttpMethod.GET, new HttpEntity<>(headers()), entityType).getBody();
     }
 
     public <T> ResponseEntity<T> get(String endpoint, MultiValueMap<String, String> params, Class<T> t) {
@@ -107,6 +110,7 @@ public class MyTemplate {
         headers.set("Content-Type", MediaType.APPLICATION_JSON_VALUE);
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
         headers.set("Authorization", "Bearer " + apiToken);
+        headers.set("ALLIANZ-SUBSIDIARY", "ES");
         return headers;
     }
 

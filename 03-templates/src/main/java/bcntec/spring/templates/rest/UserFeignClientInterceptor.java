@@ -12,6 +12,6 @@ public class UserFeignClientInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate template) {
 
-        template.header(AUTHORIZATION_HEADER, String.format("%s %s", BEARER_TOKEN_TYPE, "MyTokn"));
+        template.header(AUTHORIZATION_HEADER, String.format("%s %s", BEARER_TOKEN_TYPE, "MyToken"));
     }
 }
