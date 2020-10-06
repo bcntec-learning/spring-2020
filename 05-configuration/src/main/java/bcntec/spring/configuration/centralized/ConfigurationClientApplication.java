@@ -6,9 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//import org.springframework.cloud.context.config.annotation.RefreshScope;
 
-//@Profile("configuration-client")
 @SpringBootApplication(scanBasePackageClasses = ConfigurationClientApplication.class)
 public class ConfigurationClientApplication {
 
@@ -18,11 +16,11 @@ public class ConfigurationClientApplication {
         application.run(args);
     }
 
-    //@RefreshScope
+
     @RestController
     public static class MessageRestController {
 
-        @Value("${message:Hello default}")
+        @Value("${message:Hello ${spring.application.name} default}")
         private String message;
 
         @GetMapping("/message")

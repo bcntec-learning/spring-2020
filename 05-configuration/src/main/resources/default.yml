@@ -17,6 +17,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/bcntec-learning/spring-2019/05-configuration/data/{application}
+          uri: https://github.com/bcntec-learning/spring-2020/05-configuration/data
 server:
   port: 8888
