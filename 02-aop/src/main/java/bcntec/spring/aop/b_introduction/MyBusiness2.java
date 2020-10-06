@@ -10,6 +10,7 @@ public class MyBusiness2 implements MyBusiness {
         } catch (InterruptedException e) {
 
         }
+        new MyBusiness2().runNow(); // no hay AOP
     }
 
     public void throwMyException() {

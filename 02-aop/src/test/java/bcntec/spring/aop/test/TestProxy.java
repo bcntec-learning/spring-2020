@@ -19,7 +19,7 @@ public class TestProxy {
     FirstBean target = new MyFirstBean();
 
 
-    @Before
+    @Before //@BeforeClass
     public void init() {
 
         InvocationHandler handler = new InvocationHandler() {
@@ -27,10 +27,12 @@ public class TestProxy {
 
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                if (i > 3) {
-                    throw new RuntimeException("no no no");
+                if (!"toString".equals(method.getName())) {
+                    if (i > 3) {
+                        throw new RuntimeException("no no no");
+                    }
+                    i++;
                 }
-                i++;
                 return method.invoke(target, args);
             }
         };
@@ -39,6 +41,9 @@ public class TestProxy {
         myFirstBean = (FirstBean) Proxy.newProxyInstance(
                 FirstBean.class.getClassLoader(), new Class[]{FirstBean.class}, handler);
 
+        System.out.println(myFirstBean.getClass());
+        System.out.println(myFirstBean instanceof FirstBean);
+        System.out.println(myFirstBean instanceof MyFirstBean);
 
     }
 
@@ -50,7 +55,7 @@ public class TestProxy {
         target.hello("target_asset_not_null");
         target.hello("target_asset_not_null");
         target.hello("target_asset_not_null");
-        //System.err.println(target); //== System.err.println(target.toString());
+
 
     }
 
@@ -61,6 +66,7 @@ public class TestProxy {
         myFirstBean.hello("proxy_asset_not_null");
         myFirstBean.hello("proxy_asset_not_null");
         myFirstBean.hello("proxy_asset_not_null");
+        //a partir de aquí proxy fallo
         myFirstBean.hello("proxy_asset_not_null");
         myFirstBean.hello("proxy_asset_not_null");
         myFirstBean.hello("proxy_asset_not_null");

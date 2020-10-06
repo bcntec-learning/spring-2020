@@ -39,6 +39,7 @@ public class TestContextMyBusiness {
         assertNotNull(myBusiness1);
         assertNotNull(myBusiness2);
 
+        accumulator.stream().forEach(System.out::println);
     }
 
     @Test
@@ -49,6 +50,7 @@ public class TestContextMyBusiness {
         assertEquals(2, accumulator.size());
         myBusiness2.runNow();
         assertEquals(3, accumulator.size());
+        accumulator.stream().forEach(System.out::println);
     }
 
     @Test(expected = MyException.class)

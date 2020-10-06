@@ -5,6 +5,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.lang.annotation.Documented;
 import java.util.List;
 
 @Aspect
@@ -20,18 +21,21 @@ public class MyAuditAspect {
 
     @Before("runMethods()")
     public void before(JoinPoint joinPoint) {
-        accumulator.add("Method  [" + joinPoint.getSignature().getName() + "] starts");
+        accumulator.add("Method  [" + joinPoint.getSignature().getName() + "] before");
     }
 
     @After("runMethods()")
-    public void beforeSysOut(JoinPoint joinPoint) {
-        System.out.println("Method  [" + joinPoint.getSignature().getName() + "] starts");
+    public void after(JoinPoint joinPoint) {
+        System.out.println("Method  [" + joinPoint.getSignature().getName() + "] after");
     }
 
 
-    @Around("@annotation(MyAudit)")
+    @Around("@annotation(MyAudit)") //Cacheable
     public Object myAudit(ProceedingJoinPoint joinPoint) throws Throwable {
-        String methodName = joinPoint.getSignature().getName();
+
+        MyAudit t = joinPoint.getTarget().getClass().getAnnotation(MyAudit.class);
+
+        String methodName = t.value().isEmpty() ? joinPoint.getSignature().getName() :  t.value();
         accumulator.add("Call to " + methodName);
         Object obj = joinPoint.proceed();
         accumulator.add("Method called successfully: " + methodName);
