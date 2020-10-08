@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
+@NamedQueries(
+        @NamedQuery(name = "userOrderByName3", query = "select (u) from User u order by u.name")
+)
 @Table(name = "USERS")
 @Entity(name = "User")
 public class UserEntity {
@@ -14,7 +16,7 @@ public class UserEntity {
     private Long id;
 
     @NotNull
-    //@Column(name = "NAME", nullable = false)
+    //@Column(name = "NAME_2", nullable = false)
     private String name;
     @NotNull
     private String email;

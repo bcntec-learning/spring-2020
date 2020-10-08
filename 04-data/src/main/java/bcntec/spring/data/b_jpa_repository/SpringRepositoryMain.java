@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 */
 @ComponentScan(basePackageClasses = {UserEntity.class, UserRepository.class})
 @EntityScan(basePackageClasses = UserEntity.class)
-@SpringBootApplication(scanBasePackageClasses = {SpringRepositoryMain.class})
+@SpringBootApplication
 public class SpringRepositoryMain {
 
     public static void main(String[] args) {

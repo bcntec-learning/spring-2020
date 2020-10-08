@@ -29,6 +29,10 @@ public class MyAuditAspect {
         System.out.println("Method  [" + joinPoint.getSignature().getName() + "] after");
     }
 
+    @Before("@annotation(MyAudit)")
+    public void beforeWithAnnotations(JoinPoint joinPoint) {
+        accumulator.add("Method  [" + joinPoint.getSignature().getName() + "] before");
+    }
 
     @Around("@annotation(MyAudit)") //Cacheable
     public Object myAudit(ProceedingJoinPoint joinPoint) throws Throwable {

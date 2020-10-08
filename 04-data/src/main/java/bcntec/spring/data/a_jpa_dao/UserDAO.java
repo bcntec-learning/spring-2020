@@ -22,6 +22,11 @@ public class UserDAO extends AbstractDAO<UserEntity, Long> {
                 .getResultList();
     }
 
+    public List<UserEntity> listOrderByQuery() {
+        return getEntityManager().createQuery("select (u) from User u order by u.name", UserEntity.class)
+                .getResultList();
+    }
+
 /*
     public BigDecimal debt(){
         return getEntityManager()
