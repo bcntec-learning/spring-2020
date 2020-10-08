@@ -18,7 +18,7 @@ public class MySourcesPostProcessor implements EnvironmentPostProcessor {
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment,
                                        SpringApplication application) {
-        environment.getPropertySources().addLast(load("default.yml", "META-INF/ais-default.yml"));
+        environment.getPropertySources().addLast(load("default", "META-INF/default.yml"));
     }
 
     private PropertySource<?> load(String name, String path) {
